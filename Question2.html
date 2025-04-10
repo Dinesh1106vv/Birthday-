@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Question 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Will you be with me forever? 💍</h1>
+    <button class="yes-btn" id="yes-btn">Yes</button>
+    <button class="no-btn" id="no-btn">No</button>
+    <script>
+      let clickCount = 0;
+      const noBtn = document.getElementById("no-btn");
+      const yesBtn = document.getElementById("yes-btn");
+      const messages = ["Are you sure?", "Are you serious about that?", "Don't break my heart...", "Think again!"];
+
+      noBtn.addEventListener("click", () => {
+        clickCount++;
+        noBtn.innerText = messages[Math.min(clickCount, messages.length - 1)];
+        let scale = 1 + clickCount * 0.2;
+        yesBtn.style.transform = `scale(${scale})`;
+      });
+
+      yesBtn.addEventListener("click", () => {
+        window.location.href = "question3.html";
+      });
+    </script>
+  </div>
+</body>
+</html>
